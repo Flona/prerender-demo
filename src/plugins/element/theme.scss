@@ -1,0 +1,15 @@
+@import '../../styles/variables';
+
+// @override element-ui/packages/theme-chalk/src/common/var.scss
+$--font-path: '~element-ui/packages/theme-chalk/src/fonts';
+$--color-primary: $app-primary-color;
+$--color-success: $app-success-color;
+$--color-warning: $app-warning-color;
+$--color-danger: $app-danger-color;
+
+$--color-text-primary: $app-text-1-color;
+$--color-text-secondary: $app-text-2-color;
+$--color-text-placeholder: $app-text-3-color;
+
+@import '~element-ui/packages/theme-chalk/src/icon';
+@import '~element-ui/packages/theme-chalk/src/button';

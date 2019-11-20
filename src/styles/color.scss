@@ -1,0 +1,50 @@
+@import './variables';
+
+$funtion-map: (
+    primary: $app-primary-color,
+    primary-light: $app-primary-light,
+    success: $app-success-color,
+    success-light: $app-success-light,
+    warning: $app-warning-color,
+    warning-light: $app-warning-light,
+    danger: $app-danger-color,
+    danger-light: $app-danger-light
+);
+$text-map: (
+    1: $app-text-1-color,
+    2: $app-text-2-color,
+    3: $app-text-3-color
+);
+$grey-map: (
+    1: $app-grey-1-color,
+    2: $app-grey-2-color,
+    3: $app-grey-3-color,
+    4: $app-grey-4-color,
+    5: $app-grey-5-color,
+    6: $app-grey-6-color,
+    7: $app-grey-7-color
+);
+
+.color {
+    @each $name, $value in $funtion-map {
+        &-#{$name} {
+            color: $value !important;
+        }
+    }
+
+    &-text {
+        @each $index, $value in $text-map {
+            &-#{$index} {
+                color: $value !important;
+            }
+        }
+    }
+
+    &-grey {
+        @each $index, $value in $grey-map {
+            &-#{$index} {
+                color: $value !important;
+            }
+        }
+    }
+}
