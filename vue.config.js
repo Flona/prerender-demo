@@ -6,7 +6,7 @@ module.exports = {
     devServer: {
         proxy: {
             '/api/': {
-                target: 'http://10.30.30.241:11001/isclink/',
+                target: 'http://00.00.00.000:8080/isclink/',
                 changeOrigin: true
             }
         }
@@ -23,7 +23,7 @@ module.exports = {
             config.plugin('prerenderSPAPlugin').use(PrerenderSPAPlugin, [
                 {
                     staticDir: path.join(__dirname, 'dist'),
-                    routes: ['/', '/theme', '/usage'],
+                    routes: ['/', '/theme', '/usage', '/videoPlay'],
                     renderer: new Renderer({
                         inject: {
                             foo: 'bar'
@@ -58,6 +58,18 @@ module.exports = {
              */
             pluginOptions: {
                 plainSprite: true
+            }
+        }
+    },
+    css: {
+        loaderOptions: {
+            // pass options to sass-loader
+            sass: {
+                // @/ is an alias to src/
+                // so this assumes you have a file named `src/variables.scss`
+                data: `
+                   @import "@/styles/_variables.scss";
+                `
             }
         }
     }
