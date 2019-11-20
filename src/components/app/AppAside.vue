@@ -28,8 +28,7 @@ export default {
                 { name: '首页', path: '/home', icon: 'nav-home' },
                 { name: '主题', path: '/theme', icon: 'nav-theme' },
                 { name: '方法', path: '/usage', icon: 'nav-usage' },
-                { name: '视频', path: '/videoPlay', icon: 'nav-usage' },
-                { name: 'ELE', path: '/ele', icon: 'nav-usage' }
+                { name: '视频', path: '/videoPlay', icon: 'nav-usage' }
             ]
         };
     }

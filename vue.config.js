@@ -23,7 +23,7 @@ module.exports = {
             config.plugin('prerenderSPAPlugin').use(PrerenderSPAPlugin, [
                 {
                     staticDir: path.join(__dirname, 'dist'),
-                    routes: ['/', '/theme', '/usage', '/videoPlay'],
+                    routes: ['/', '/theme', '/videoPlay'],
                     renderer: new Renderer({
                         inject: {
                             foo: 'bar'

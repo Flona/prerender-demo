@@ -1,0 +1,22 @@
+export default {
+    Home: 'Home',
+    Summary: 'Summary',
+    Solution: 'Solution',
+    WisdomPark: 'Smart Park',
+    Manufacture: 'Intelligent Manufacturing',
+    Other: 'Other scenes',
+    Product: 'Products and Services',
+    IsysCore: 'Technical Concepts',
+    EdgeComputing: 'BI-OS',
+    IntelligentTerminal: 'Intelligent Terminal',
+    Application: 'II-OS',
+    Integrators: 'Integrator Platform',
+    Media: 'Media',
+    News: 'News',
+    Memorabilia: 'Company Events',
+    About: 'About Us',
+    Intro: 'Company',
+    Contact: 'Contact Us',
+    Join: 'Join Us',
+    Patent: 'Patents and honors'
+};

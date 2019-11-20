@@ -32,10 +32,23 @@ export const children = [
 
 export default [
     {
-        path: '/',
-        name: 'Layout',
-        component: Layout,
-        children
+        path: '',
+        name: 'Home',
+        component: () => import('../views/Home'),
+        meta: { title: 'Home' },
+        hidden: true
+    },
+    {
+        path: '/theme',
+        name: 'Theme',
+        component: () => import('../views/Theme'),
+        meta: { title: 'Theme' }
+    },
+    {
+        path: '/usage',
+        name: 'Usage',
+        component: () => import('../views/Usage'),
+        meta: { title: 'Usage' }
     },
     {
         path: '/videoPlay',
