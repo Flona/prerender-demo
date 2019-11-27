@@ -13,12 +13,6 @@ module.exports = {
         }
     },
     chainWebpack: config => {
-        // config.module
-        //     .rule('images')
-        //     .test(/\.(png|jpe?g|gif)(\?.*)?$/)
-        //     .use('image-webpack-loader')
-        //     .loader('image-webpack-loader')
-        //     .options({ bypassOnDebug: true });
         config.module
             .rule('svg-sprite')
             .use('svgo-loader')
@@ -30,16 +24,7 @@ module.exports = {
             config.plugin('prerenderSPAPlugin').use(PrerenderSPAPlugin, [
                 {
                     staticDir: path.join(__dirname, 'dist'),
-                    routes: [
-                        '/',
-                        '/solution/wisdomPark',
-                        '/solution/other',
-                        '/about/intro',
-                        '/about/media',
-                        '/about/media/memorabilia',
-                        '/contact',
-                        '/integrators'
-                    ],
+                    routes: ['/', '/about/intro', '/contact', '/integrators'],
                     renderer: new Renderer({
                         inject: {
                             foo: 'bar'

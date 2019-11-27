@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="card">
         <el-image style="width: 100%; height: 120px" :src="location.img" :key="location.img" fit="cover"></el-image>
         <div class="main" :key="location.name">
             <div class="main-content">
@@ -32,6 +32,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.card {
+    border: 1px solid $app-grey-6-color;
+}
 .main {
     padding: 15px 12px;
     font-size: 14px;
