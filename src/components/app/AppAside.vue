@@ -1,16 +1,16 @@
 <template>
-    <aside class="flex-grow-1" cls-name="aside">
-        <div cls-name="brand">
-            <svg-icon cls-name="brand__logo" name="logo"></svg-icon>
-            <h1 cls-name="brand__name">prerender-demo</h1>
+    <aside>
+        <div class="brand">
+            <div class="brand__logo"></div>
+            <h1 class="brand__name">scafold-ui</h1>
         </div>
 
-        <nav cls-name="nav">
+        <nav class="nav">
             <ul>
-                <li cls-name="nav__item" v-for="nav in navList" :key="nav.name">
-                    <router-link :to="nav.path" cls-name="nav__link">
-                        <svg-icon cls-name="nav__icon" :name="nav.icon"></svg-icon>
-                        <span cls-name="nav__name">{{ nav.name }}</span>
+                <li v-for="nav in navList" :key="nav.name">
+                    <router-link :to="nav.path">
+                        <i class="nav__icon"></i>
+                        <span class="nav__name">{{ nav.name }}</span>
                     </router-link>
                 </li>
             </ul>
@@ -21,27 +21,19 @@
 <script>
 export default {
     name: 'AppAside',
-
     data() {
         return {
             navList: [
                 { name: '首页', path: '/home', icon: 'nav-home' },
-                { name: '主题', path: '/theme', icon: 'nav-theme' },
-                { name: '方法', path: '/usage', icon: 'nav-usage' },
-                { name: '视频', path: '/videoPlay', icon: 'nav-usage' }
+                { name: '应用主题', path: '/theme', icon: 'nav-theme' }
             ]
         };
     }
 };
 </script>
 
-<style module lang="scss">
-@import '../../styles/variables';
-
-.aside {
-    width: $app-aside-width;
-    background: $app-grey-3-color;
-}
+<style scoped lang="scss">
+@import '../../scss/variables';
 
 .brand {
     display: flex;
@@ -52,6 +44,7 @@ export default {
     &__logo {
         width: 40px;
         height: 40px;
+        background: $app-danger-color;
     }
 
     &__name {
@@ -66,25 +59,25 @@ export default {
 }
 
 .nav {
-    &__item {
+    li {
         margin-bottom: $app-offset-small;
         padding: 0 $app-offset-xsmall;
     }
 
-    &__link {
-        display: block;
+    a {
+        display: flex;
+        align-items: center;
+        width: 100%;
         line-height: 44px;
         color: #fff;
         padding: 0 $app-offset-xsmall;
         border-radius: 4px;
-        font-size: 14px;
 
         &:hover {
             background: $app-grey-2-color;
-            color: #fff;
         }
 
-        &:global(.router-link-active) {
+        &.router-link-active {
             background: $app-primary-color;
         }
     }
@@ -92,7 +85,7 @@ export default {
     &__icon {
         width: 20px;
         height: 20px;
-        vertical-align: middle;
+        background: $app-danger-color;
     }
 
     &__name {

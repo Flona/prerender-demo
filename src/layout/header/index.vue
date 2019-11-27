@@ -22,7 +22,7 @@
 import { mapState } from 'vuex';
 import SidebarItem from './SidebarItem';
 import Lang from './Lang';
-import { children } from '@/router/routes';
+import routes from '@/router/routes';
 import variables from '@/styles/_variables.scss';
 import logo from '@/assets/logo.png';
 
@@ -65,7 +65,7 @@ export default {
             return variables;
         },
         routes() {
-            return children;
+            return routes;
         }
     },
     methods: {
@@ -129,6 +129,7 @@ export default {
 
     .logo {
         height: 28px;
+        cursor: pointer;
     }
 
     .lang {

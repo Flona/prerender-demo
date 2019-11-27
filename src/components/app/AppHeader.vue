@@ -1,5 +1,5 @@
 <template>
-    <header class="header d-flex align-center">{{ $route.name }}</header>
+    <header class="header">头部</header>
 </template>
 
 <script>
@@ -9,11 +9,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '../../styles/variables';
+@import '../../scss/variables';
 
 .header {
-    font-size: 20px;
+    line-height: 80px;
+    font-size: 40px;
     color: $app-text-1-color;
-    padding: $app-offset-small;
+    background: $app-grey-7-color;
 }
 </style>

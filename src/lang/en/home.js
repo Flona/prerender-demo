@@ -1,32 +1,23 @@
+import banner1 from '@/assets/imgs/banner1.png';
+import banner2 from '@/assets/imgs/banner2.png';
+import banner3 from '@/assets/imgs/banner3.png';
+
 export default {
-    summaryCardNews: 'News',
-    summaryCardIsysCore: 'Application Scenarios for iSysCore',
-    summaryCardIsysCooperative: 'Cooperation',
-
-    learnMore: 'Learn More >',
-
-    banner: {
-        title: 'Enabling integrator   Help upgrade the industry',
-        content:
-            'Enterprise big data intelligent analysis platform,With comprehensive security guarantee,Large data computing capability,Advanced intelligent analysis, convenient collaboration and sharing features.',
-        button: 'For details'
+    summaryCarouselList: {
+        banner1,
+        id1: '1en',
+        banner2,
+        id2: '2en',
+        banner3,
+        id3: '3en'
     },
 
-    solution: {
-        title: 'One-stop solutions at System Level',
-        des:
-            'iSysCore Smart Building Window is a typical building Integrated operation management system , secondly developed based on the capability of iSysCore BI-OS, including many applications in three scenes, such as Building management, Government and Enterprises management and Employee services. ',
-        cardTitle1: 'Based on iSysCore I-OS',
-        cardContent1: 'Unified and Open architecture, standard, reuse, expansion',
-        cardTitle2: 'Connect to any device, protocol, Network and database',
-        cardContent2:
-            'Two way communication, easily realizing the function of interconnection, intercommunication and interaction.',
-        cardTitle3: 'Platform support for any application',
-        cardContent3: 'Component-driven inventory, standard, reuse, expansion'
+    module1: {
+        title: 'vue-video-player Demo'
     },
 
-    product: {
-        title: 'Products and Services',
+    module2: {
+        title: 'Scaling of the Card',
         cards: {
             title1: 'Device Management',
             title2: 'Data Processing',
@@ -36,9 +27,7 @@ export default {
         }
     },
 
-    cooperation: {
-        title: 'Our Partners',
-        content:
-            'Hangzhou Instruction Set Intelligent Science & Technology Co., Ltd. is one underlying software and technical service company. With the iSysCore I-OS as the core, it provides a variety of intelligent solutions to government and enterprises. Its headquarter and R&D center are located in Hangzhou. Now it has set up subsidiaries in Shanghai and Chongqing to provide better localized services.'
+    module3: {
+        title: 'vue-awesome-swiper Demo'
     }
 };

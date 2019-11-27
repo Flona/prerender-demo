@@ -1,97 +1,73 @@
 <template>
-    <LayoutContainer cls-name="home">
-        <div class="flex-grow-1 d-flex flex-column justify-center align-center">
-            <div cls-name="brand">
-                <img src="../assets/logo.png" alt="logo" width="400" cls-name="brand__logo" />
+    <div class="home">
+        <HomeSummaryCarousel />
 
-                <p class="d-flex align-center justify-center" cls-name="brand__park">
-                    <SvgIcon name="park"></SvgIcon>
-                    xxxx
-                </p>
-            </div>
+        <section class="home__module">
+            <h1 class="wow slideInUp">{{ $t('home.module1.title') }}</h1>
+            <VideoPlayer />
+        </section>
 
-            <div cls-name="todo">
-                <h2 cls-name="todo__head">Todo</h2>
-                <p cls-name="todo__title">{{ todo.title }}</p>
-            </div>
-        </div>
-    </LayoutContainer>
+        <section class="home__module">
+            <h1 class="wow slideInUp">{{ $t('home.module2.title') }}</h1>
+            <HomeServiceCard />
+        </section>
+
+        <section class="home__module">
+            <h1 class="wow slideInUp">{{ $t('home.module3.title') }}</h1>
+            <HomeCooperationCarousel />
+        </section>
+    </div>
 </template>
 
 <script>
-import LayoutContainer from '../components/layout/LayoutContainer';
-import SvgIcon from '../components/SvgIcon';
-import { getTodo } from '../services/todo';
+import HomeSummaryCarousel from '@/components/carousel/HomeSummaryCarousel';
+import VideoPlayer from '@/components/media/VideoPlay';
+import HomeServiceCard from '@/components/card/HomeServiceCard';
+import HomeCooperationCarousel from '@/components/carousel/HomeCooperationCarousel';
 
 export default {
-    components: {
-        LayoutContainer,
-        SvgIcon
-    },
-
     name: 'Home',
 
     data() {
         return {
-            todo: {
-                title: '...'
-            }
+            carouselHeight: '100vh'
         };
     },
 
-    mounted() {
-        this.initData();
+    components: {
+        HomeSummaryCarousel,
+        VideoPlayer,
+        HomeServiceCard,
+        HomeCooperationCarousel
+    },
+
+    created() {
+        this.$nextTick(() => {
+            this.wowInit();
+        });
     },
 
     methods: {
-        async initData() {
-            try {
-                this.todo = await getTodo();
-            } catch (err) {
-                alert(err.message);
-            }
+        wowInit() {
+            new this.$wow.WOW({ live: false }).init();
         }
     }
 };
 </script>
 
-<style module lang="scss">
-@import '../styles/variables';
-
+<style scoped lang="scss">
 .home {
-    background: #fff;
-}
-
-.brand {
-    margin-bottom: $app-offset-large;
-
-    &__logo {
-        max-width: 600px;
-        height: auto;
-    }
-
-    &__park {
-        font-size: 20px;
-        color: $app-text-1-color;
-
-        .svg-icon {
-            margin-right: $app-offset-xsmall;
-        }
-    }
-}
-
-.todo {
-    color: $app-text-1-color;
-
-    &__head {
-        font-weight: normal;
-        font-size: 20px;
-        line-height: 1.5;
+    &__module {
+        margin: 100px 0;
         text-align: center;
-    }
-
-    &__title {
-        font-size: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h1 {
+            font-size: 48px;
+            font-weight: 500;
+            margin-bottom: 33px;
+        }
     }
 }
 </style>

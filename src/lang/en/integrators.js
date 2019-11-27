@@ -1,13 +1,13 @@
 export default {
     header: {
-        title: 'Integrator Platform',
-        des: 'Integrator management platform based on iSysCore business intelligence operating system',
-        button: 'Registration/login'
+        title: 'Operating Platform',
+        des: 'Based on XXX business intelligence operation management platform',
+        button: 'Sign up / Sign in'
     },
     intro: {
-        title: 'Integrator management platform introduction',
+        title: 'Operating Platform',
         des:
-            'iSysCore Integrator management platform, for the hardware, application, service and other resources in the building, provide IOT, management and digital services, endow the building with intelligent energy of comprehensive coordination, and provide the building management operator and the building owner with intelligent, safe, open, efficient and convenient construction comprehensive management and operation.',
+            'Based on XXX business intelligence operation management platform,Based on XXX business intelligence operation management platform,Based on XXX business intelligence operation management platform,Based on XXX business intelligence operation management platform.',
         tags: {
             content1: 'intelligent',
             content2: 'safe',
@@ -17,7 +17,7 @@ export default {
         }
     },
     features: {
-        title: 'Operating platform characteristics',
+        title: 'Operating Platform Characteristics',
         cards: {
             title1: 'Rich IOT capabilities',
             title2: 'Centralized supervision',

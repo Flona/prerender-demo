@@ -1,55 +1,67 @@
 <template>
     <LayoutApp id="app">
         <template>
-            <LayoutHeader></LayoutHeader>
-            <LayoutMain>
-                <LayoutAside>
-                    <AppAside></AppAside>
-                </LayoutAside>
-                <LayoutContainer>
-                    <AppHeader></AppHeader>
-                    <LayoutPrimary>
-                        <router-view></router-view>
-                    </LayoutPrimary>
-                    <AppFooter></AppFooter>
-                </LayoutContainer>
-            </LayoutMain>
-            <LayoutFooter></LayoutFooter>
+            <Header />
+            <Main />
+            <Footer v-show="!hiddenFooter" />
         </template>
     </LayoutApp>
 </template>
 
 <script>
-import { mapState } from 'vuex';
-import LayoutApp from './components/layout/LayoutApp';
-import LayoutHeader from './components/layout/LayoutHeader';
-import LayoutMain from './components/layout/LayoutMain';
-import LayoutFooter from './components/layout/LayoutFooter';
-import LayoutAside from './components/layout/LayoutAside';
-import LayoutContainer from './components/layout/LayoutContainer';
-import LayoutPrimary from './components/layout/LayoutPrimary';
-import AppAside from './components/app/AppAside';
-import AppHeader from './components/app/AppHeader';
-import AppFooter from './components/app/AppFooter';
+import Header from '@/layout/header/index';
+import Main from '@/layout/Main';
+import Footer from '@/layout/Footer';
+import LayoutApp from '@/layout/LayoutApp';
 
 export default {
     name: 'App',
 
     components: {
-        LayoutApp,
-        LayoutHeader,
-        LayoutMain,
-        LayoutFooter,
-        LayoutAside,
-        LayoutContainer,
-        LayoutPrimary,
-        AppAside,
-        AppHeader,
-        AppFooter
+        Header,
+        Main,
+        Footer,
+        LayoutApp
     },
-
     computed: {
-        ...mapState(['userToken'])
+        alwaysLight() {
+            return this.$route.meta.alwaysLight;
+        },
+        hiddenFooter() {
+            return this.$route.meta.hiddenFooter;
+        }
+    },
+    watch: {
+        alwaysLight: {
+            handler: function(newAlwaysLight) {
+                this.changeTypeByTag(!newAlwaysLight);
+            },
+            immediate: true
+        }
+    },
+    mounted() {
+        window.onscroll = this.onScroll;
+    },
+    methods: {
+        onScroll() {
+            const h = document.scrollingElement.scrollTop;
+            this.changeTypeByTag(h <= 50 && !this.alwaysLight);
+        },
+        changeTypeByTag(isDark) {
+            let type = 'light';
+            if (isDark) {
+                type = 'dark';
+            }
+            this.$store.dispatch('menu/changeMenuStyleType', type);
+        }
     }
 };
 </script>
+
+<style lang="scss">
+.app {
+    display: flex;
+    width: 100%;
+    min-width: 1200px;
+}
+</style>

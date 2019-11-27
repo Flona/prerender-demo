@@ -1,4 +1,5 @@
 const path = require('path');
+const CompressionPlugin = require('compression-webpack-plugin');
 const PrerenderSPAPlugin = require('prerender-spa-plugin');
 const Renderer = PrerenderSPAPlugin.PuppeteerRenderer;
 
@@ -6,12 +7,18 @@ module.exports = {
     devServer: {
         proxy: {
             '/api/': {
-                target: 'http://00.00.00.000:8080/isclink/',
+                target: 'http://10.20.2.57:8080',
                 changeOrigin: true
             }
         }
     },
     chainWebpack: config => {
+        // config.module
+        //     .rule('images')
+        //     .test(/\.(png|jpe?g|gif)(\?.*)?$/)
+        //     .use('image-webpack-loader')
+        //     .loader('image-webpack-loader')
+        //     .options({ bypassOnDebug: true });
         config.module
             .rule('svg-sprite')
             .use('svgo-loader')
@@ -23,7 +30,16 @@ module.exports = {
             config.plugin('prerenderSPAPlugin').use(PrerenderSPAPlugin, [
                 {
                     staticDir: path.join(__dirname, 'dist'),
-                    routes: ['/', '/theme', '/videoPlay'],
+                    routes: [
+                        '/',
+                        '/solution/wisdomPark',
+                        '/solution/other',
+                        '/about/intro',
+                        '/about/media',
+                        '/about/media/memorabilia',
+                        '/contact',
+                        '/integrators'
+                    ],
                     renderer: new Renderer({
                         inject: {
                             foo: 'bar'
@@ -32,6 +48,14 @@ module.exports = {
                         headless: true
                         // renderAfterDocumentEvent: 'render-event'
                     })
+                }
+            ]);
+            // gzip
+            config.plugin('compressionPlugin').use(CompressionPlugin, [
+                {
+                    test: /\.(js|css|json|txt|html|ico|svg|ttf|woff|png)(\?.*)?$/i, // 匹配文件名
+                    threshold: 10240, // 对超过10k的数据压缩
+                    deleteOriginalAssets: false // 不删除源文件
                 }
             ]);
         });

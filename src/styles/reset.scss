@@ -9,12 +9,17 @@
 }
 
 html {
+    max-width: 3840px;
+    min-width: 1200px;
     font-size: 16px;
-    overflow-x: hidden;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    font-family:'PingFang SC',"Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu;
+    background: $app-background-color1;
+    color: $app-text-1-color;
+    line-height: 1;
 }
 
 ul,
@@ -35,4 +40,10 @@ img {
     max-width: 100%;
     height: auto;
     border: 0;
+}
+
+.cover-image {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }

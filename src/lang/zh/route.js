@@ -1,22 +1,8 @@
 export default {
     Home: '首页',
-    Summary: '概括',
-    Solution: '解决方案',
-    WisdomPark: '智慧园区',
-    Manufacture: '智慧制造',
-    Other: '其他场景',
-    Product: '产品与服务',
-    IsysCore: '技术理念',
-    EdgeComputing: 'BI-OS',
-    IntelligentTerminal: '智慧终端',
-    Application: 'II-OS',
-    Integrators: '集成商工作台',
-    Media: '媒体中心',
-    News: '新闻报道',
-    Memorabilia: '公司大事记',
+    Integrators: '操作工作台',
     About: '关于我们',
     Intro: '公司简介',
     Contact: '联系我们',
-    Join: '加入我们',
-    Patent: '专利与荣誉'
+    Join: '加入我们'
 };

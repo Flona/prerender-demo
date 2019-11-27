@@ -12,6 +12,7 @@ export default {
 
 <style lang="scss" scoped>
 .main {
+    min-height: 100vh;
     width: 100%;
     overflow: hidden;
     margin-top: -80px;
